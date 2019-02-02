@@ -1,8 +1,10 @@
 name: BigGAN
 description: Large Scale GAN Training for High Fidelity Natural Image Synthesis
 license: Apache-2.0
-base: python2.7
+python: 2.7
+cuda: 9.0
 entrypoint: python model.py
 build_steps:
   - pip install -r requirements.txt
   - python dl_models.py
+  - if_gpu: pip install tensorflow-gpu==1.12.0
